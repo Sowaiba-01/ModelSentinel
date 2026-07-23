@@ -100,6 +100,17 @@ ModelSentinel is built to look and behave like a production open-source library,
 
 > **ModelSentinel ships new versions regularly.** ⭐ Star and watch the repo to follow releases — see [CHANGELOG.md](CHANGELOG.md) for what's new in each one.
 
+## Benchmarks
+
+ModelSentinel is fast — the full workflow runs in well under a second on typical
+tabular datasets. Reproduce with `python benchmarks/benchmark.py`; results are
+written to [`benchmarks/RESULTS.md`](benchmarks/RESULTS.md).
+
+| Dataset | Samples × Features | Full workflow | Drift caught |
+| --- | --- | ---: | --- |
+| breast_cancer | 569 × 30 | ~247 ms | 5/30 shifted features flagged |
+| wine | 178 × 13 | ~28 ms | 8/13 shifted features flagged |
+
 ## Contributing
 
 Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md). Security issues: see [SECURITY.md](SECURITY.md).
