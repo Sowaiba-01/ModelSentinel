@@ -111,6 +111,28 @@ written to [`benchmarks/RESULTS.md`](benchmarks/RESULTS.md).
 | breast_cancer | 569 × 30 | ~247 ms | 5/30 shifted features flagged |
 | wine | 178 × 13 | ~28 ms | 8/13 shifted features flagged |
 
+## Case study: auditing a real deepfake detector
+
+ModelSentinel was used to audit **DeepGuard**, an EfficientNet-B4 deepfake detector,
+across two datasets built with different face-generation methods. Every number comes
+straight from the model via ModelSentinel and is reproducible with the Colab notebook
+in that project.
+
+| Metric | 140k test split (held-out) | inswapper_128 set |
+| --- | ---: | ---: |
+| Images (real / fake) | 400 / 400 | 400 / 400 |
+| Accuracy | 0.9975 | 0.9938 |
+| F1 | 0.9975 | 0.9938 |
+| ROC-AUC | 0.99999 | 0.9989 |
+| Brier / ECE | 0.0028 / 0.0075 | 0.0086 / 0.0147 |
+| **Health Score** | **99.65 (EXCELLENT)** | **99.23 (EXCELLENT)** |
+
+Confusion matrices (rows = true `[real, fake]`): `[[398, 2], [0, 400]]` and `[[396, 4], [1, 399]]`.
+
+The detector stays above 99% accuracy on **both** a held-out test split and a set built
+with a different swap method (`inswapper_128`) — evidence it generalizes across
+generation techniques, not just to its training distribution.
+
 ## Contributing
 
 Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md). Security issues: see [SECURITY.md](SECURITY.md).
