@@ -14,6 +14,7 @@ Quick start
 >>> monitor.generate_report("report.html")
 """
 
+from modelsentinel.adapters import ModelAdapter, from_sklearn
 from modelsentinel.core.config import MonitorConfig
 from modelsentinel.core.monitor import Monitor
 from modelsentinel.data_quality import profile_data
@@ -23,10 +24,15 @@ from modelsentinel.evaluation import (
     evaluate_regression,
     optimal_threshold,
 )
+from modelsentinel.explainability import (
+    feature_effect,
+    grad_cam,
+    permutation_importance,
+)
 from modelsentinel.health import health_score
 from modelsentinel.monitoring import detect_drift, validate_schema
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 __all__ = [
     "Monitor",
@@ -38,6 +44,11 @@ __all__ = [
     "profile_data",
     "detect_drift",
     "validate_schema",
+    "permutation_importance",
+    "feature_effect",
+    "grad_cam",
+    "ModelAdapter",
+    "from_sklearn",
     "health_score",
     "__version__",
 ]
