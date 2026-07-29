@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "modelsentinel"
-version = "0.3.0"
+version = "0.4.0"
 description = "AI reliability & observability toolkit — monitor, evaluate, explain, and protect ML models."
 readme = "README.md"
 license = { file = "LICENSE" }
