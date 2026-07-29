@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import pandas as pd
 
+from modelsentinel.adapters import ModelAdapter
 from modelsentinel.core.config import MonitorConfig
 from modelsentinel.data_quality import profile_data
 from modelsentinel.evaluation import (
@@ -11,6 +12,7 @@ from modelsentinel.evaluation import (
     evaluate_regression,
     optimal_threshold,
 )
+from modelsentinel.explainability import feature_effect, permutation_importance
 from modelsentinel.health import health_score
 from modelsentinel.monitoring import detect_drift, validate_schema
 from modelsentinel.reporting import generate_html_report
@@ -79,6 +81,32 @@ class Monitor:
     def validate_schema(self, reference: pd.DataFrame, current: pd.DataFrame) -> dict:
         res = validate_schema(reference, current)
         self.results["schema"] = res
+        return res
+
+    # -- explainability -----------------------------------------------------
+    def _predict_fn(self):
+        """Resolve a predict callable from the model passed at construction."""
+        model = self.model
+        if model is None:
+            raise ValueError("Monitor needs a model to explain; pass model=... to Monitor()")
+        if isinstance(model, ModelAdapter):
+            return model.predict
+        if callable(model) and not hasattr(model, "predict"):
+            return model
+        return model.predict
+
+    def explain_importance(self, X, y, scorer=None, n_repeats: int = 5,
+                           feature_names=None) -> dict:
+        """Rank features by permutation importance for the stored model."""
+        res = permutation_importance(self._predict_fn(), X, y, scorer=scorer,
+                                     n_repeats=n_repeats, feature_names=feature_names)
+        self.results["importance"] = res
+        return res
+
+    def feature_effect(self, X, feature: int, grid: int = 20) -> dict:
+        """Compute a 1-D partial-dependence curve for one feature."""
+        res = feature_effect(self._predict_fn(), X, feature, grid=grid)
+        self.results.setdefault("effects", {})[feature] = res
         return res
 
     # -- aggregate ----------------------------------------------------------
