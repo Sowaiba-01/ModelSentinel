@@ -96,7 +96,7 @@ ModelSentinel is built to look and behave like a production open-source library,
 - **v0.1** — evaluation, drift, health score, HTML report ✅
 - **v0.2** — data-quality profiling, advanced drift (PSI / KS / chi-square / JS) ✅
 - **v0.3** — calibration, threshold analysis, schema validation, drift aggregation ✅
-- **v0.4** — SHAP & Grad-CAM explainability, framework integrations (sklearn / PyTorch / TF)
+- **v0.4** — explainability (permutation importance, feature effects, Grad-CAM) + model adapters ✅
 - **v0.5** — FastAPI monitoring server + real-time drift
 - **v0.6+** — LLM & RAG evaluation (hallucination, faithfulness, toxicity)
 
