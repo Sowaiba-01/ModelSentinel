@@ -4,7 +4,7 @@ from modelsentinel import Monitor, __version__, health_score
 
 
 def test_version():
-    assert __version__ == "0.3.0"
+    assert __version__ == "0.4.0"
 
 
 def test_health_score_partial():
