@@ -3,6 +3,14 @@
 All notable changes to this project are documented here. This project adheres to
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-07-30
+### Added
+- **Explainability**: model-agnostic permutation feature importance, 1-D feature
+  effect (partial dependence) curves, and a framework-agnostic Grad-CAM.
+- **Model adapters**: a uniform `predict` / `predict_proba` interface
+  (`ModelAdapter`, `from_sklearn`) so any framework plugs into the toolkit.
+- `Monitor.explain_importance()` and `Monitor.feature_effect()`.
+
 ## [0.3.0] - 2026-07-27
 ### Added
 - Probability **calibration** report (Brier score, ECE, MCE, reliability bins).
