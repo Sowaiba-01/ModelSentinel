@@ -66,6 +66,8 @@ from modelsentinel import (
 | `evaluation` | Classification & regression metrics, probability **calibration** (Brier, ECE, MCE), decision-**threshold** tuning (F1 / Youden's J) |
 | `data_quality` | Missing values, duplicates, constant columns, IQR outliers, schema capture, quality score |
 | `monitoring` | Data **drift** via KS test + PSI (numeric) and chi-square + Jensen-Shannon divergence (categorical), plus **schema validation** |
+| `explainability` | Model-agnostic **permutation importance**, **feature-effect** curves, and framework-agnostic **Grad-CAM** |
+| `adapters` | Uniform `predict` / `predict_proba` interface over any framework (`ModelAdapter`, `from_sklearn`) |
 | `health` | Weighted **Model Health Score** that gracefully handles partial information |
 | `reporting` | Self-contained, dependency-free **HTML report** |
 
