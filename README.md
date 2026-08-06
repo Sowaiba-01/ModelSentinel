@@ -2,7 +2,7 @@
 
 **AI reliability & observability toolkit** — monitor, evaluate, explain, and protect machine-learning models with a single, consistent Python API.
 
-[![PyPI](https://img.shields.io/pypi/v/modelsentinel)](https://pypi.org/project/modelsentinel/)
+[![PyPI](https://img.shields.io/pypi/v/mlsentinel)](https://pypi.org/project/mlsentinel/)
 [![CI](https://github.com/Sowaiba-01/modelsentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/Sowaiba-01/modelsentinel/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -18,8 +18,10 @@ Shipping a model is easy. Knowing whether it is still trustworthy in production 
 ## Install
 
 ```bash
-pip install modelsentinel          # from PyPI
+pip install mlsentinel
 ```
+
+The install name is `mlsentinel`; you still `import modelsentinel` in code (like `pip install scikit-learn` / `import sklearn`).
 
 Or from source, with the dev tools:
 
