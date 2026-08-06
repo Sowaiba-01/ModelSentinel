@@ -2,10 +2,10 @@
 
 **AI reliability & observability toolkit** — monitor, evaluate, explain, and protect machine-learning models with a single, consistent Python API.
 
-[![CI](https://github.com/sowaiba/modelsentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/sowaiba/modelsentinel/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/modelsentinel)](https://pypi.org/project/modelsentinel/)
+[![CI](https://github.com/Sowaiba-01/modelsentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/Sowaiba-01/modelsentinel/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Status](https://img.shields.io/badge/status-beta-orange)
 
 Shipping a model is easy. Knowing whether it is still trustworthy in production is not. ModelSentinel answers the questions that come *after* `model.predict()`:
 
@@ -18,8 +18,15 @@ Shipping a model is easy. Knowing whether it is still trustworthy in production 
 ## Install
 
 ```bash
-pip install modelsentinel          # from PyPI (once published)
-pip install -e ".[dev]"            # from source, with dev tools
+pip install modelsentinel          # from PyPI
+```
+
+Or from source, with the dev tools:
+
+```bash
+git clone https://github.com/Sowaiba-01/modelsentinel.git
+cd modelsentinel
+pip install -e ".[dev]"
 ```
 
 ## 30-second quick start
